@@ -54,7 +54,12 @@ def writeGrid(r):
 	# features
 	features = open('features', 'w')
 	for i in range(len(r)*len(r[0])):
-		# features.write(str(int(i/len(r[0]))/float(len(r)))+' '+str((i%len(r[0]))/float(len(r[0]))))
+		# x = int(i/len(r[0]))/float(len(r))
+		# y = (i%len(r[0]))/float(len(r[0]))
+		# features.write(str(x)+' '+str(y))
+		# features.write(' '+ str(x*y)+ ' ' + str(random.random()))
+
+
 		for j in range(len(r)*len(r[0])):
 			if j!=0:
 				features.write(' ')
@@ -91,7 +96,7 @@ def rewardToGrid(theta):
 	G = [ [0 for i in range(y)] for j in range(x)]
 	for i in range(x):
 		for j in range(y):
-			# G[i][j] = i*theta[0]+j*theta[1]
+			# G[i][j] = i*theta[0]+j*theta[1]+ i*j*theta[2] #+ theta[3]*random.random()
 			G[i][j] = theta[i*y+j]
 	plt.imshow(G, cmap='hot', interpolation='nearest')
 	# plt.show()

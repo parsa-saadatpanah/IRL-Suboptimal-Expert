@@ -76,10 +76,12 @@ def terajectory(T, P, startState):
 
 def noise(r, terminals, accuracy):
 	rOut = [0 for i in range(len(r))]
+	a = sum(r)/len(r)
 	for state in range(len(r)):
 		if (state in terminals) or random.random()<=accuracy:
 			rOut[state] = r[state]
 		else:
+			# rOut[state] = min(-1, int(random.gauss(a, 5)))
 			rOut[state] = -1
 	return rOut
 
